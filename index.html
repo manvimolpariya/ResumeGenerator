@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Resume Generator</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://kit.fontawesome.com/ccbe6a25e7.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="x-icon" href='favico.png'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='responsive.css'>
+   
+</head>
+<body>
+    <header id="header">
+        <h1>Resume Generator</h1>
+    </header>
+    <section id="input-form">
+          <div id="intro-input-div">
+                <label for="name-input">Name</label>
+                <input type="text" id="name-input">
+                <label for="address-input">Address</label>
+                <textarea name="address input" id="address-input"></textarea>
+                <label for="contact-input">Contact Number</label>
+                <input type="number" id="contact-input">
+                <label for="email-input">E-mail</label>
+                <input type="email" id="email-input"></input>
+          </div>
+          <div id="work-experience-input-div" class="work-experience">
+           <h2>Work Experience</h2> 
+            <textarea name="work experience" id="experience-input" class="experience-input"></textarea>
+            <button id="work-btn" class="btn" onclick="AddField()">Add</button>
+        </div>
+        
+        <div id="education-input-div">
+           <h2>Education Qualification</h2>
+             <textarea id="education-input"  class="education-input" name="education-input"></textarea>
+             <button  id="education-input-btn" class="btn" onclick="addEducationField()">Add</button>
+            </div>
+        <div id="technical-knowledge-div">
+            <h2>Technical Knowledge</h2>
+               <textarea id="technical-info" class="technical-info" name="technical-info"></textarea>
+               <button id="technical-knowledge-btn" class="btn" onclick="addTechnicalField()">Add</button>
+        </div>
+        <div id="personal-info-div">
+          <h2 id="personal-info-div-label">Personal Information</h2>
+        <div id="personal-info-contain">
+               <label for="dob-input">DOB</label>
+               <input type="date" id="dob-input">
+               Gender
+               <div id="gender-input">
+
+                <label for="gender-input-male">Male
+                <input type="radio" id="gender-input-male" value="Male" name="gender-radio-btn"></label>
+
+                <label for="gender-input-female">Female
+                <input type="radio" name="gender-radio-btn" id="gender-input-female" value="Female"></label>
+
+                <label for="gender-input-trans">Transgender
+                <input type="radio" name="gender-radio-btn" id="gender-input-trans" value="Transgender"></label>
+            </div>
+            Martial Status
+            <div id="martial-input">
+                <label for="martial-input-married">Married
+                <input type="radio" name="martial-radio-btn" id="martial-input-married" value="Married">
+            </label>
+                <label for="martial-input-unmarried">Unmarried
+                <input type="radio" name="martial-radio-btn" id="martial-input-unmarried" value="Unmarried">
+            </label>
+            </div>
+            <label for="father-input">Father's / Husband Name</label>
+            <input type="text" id="father-input">
+
+            <label for="nationality-input">Nationality</label>
+            <input type="text" id="nationality-input">
+
+            <label for="lang-input">Languages</label>
+            <input type="text" id="lang-input">
+
+            <label for="hobbies-input">Hobbies</label>
+            <input type="text" id="hobbies-input">
+        </div>
+        </div>
+
+        <div id="declaration-input-div">
+            <label for="declaration-input">Declaration</label>
+             <textarea id="declaration-input" placeholder="I hereby declare that all the information given by me is true to the best of my knowledge and belief." name="declaration-input"></textarea>
+        </div>
+       
+           <button type="clcik"  id="generate-resume-btn" onclick="generateResume()">Generate</button>
+    </section>
+    <nav  id="edit-resume-nav">
+        <ul> 
+    <li>
+        <div id="change-color" class="edit-keys" onclick="showColors()">
+            <i class="fas fa-palette"></i>
+            <span>color</span>
+        </div>
+        <div id="colors" class="edit-values">
+            <i class="fas fa-circle" id="color1" onclick="changeColor1()"></i>
+            <i class="fas fa-circle" id="color2" onclick="changeColor2()"></i>
+            <i class="fas fa-circle" id="color3" onclick="changeColor3()"></i>
+            <i class="fas fa-circle" id="color4" onclick="changeColor4()"></i>
+            <i class="fas fa-circle" id="color5" onclick="changeColor5()"></i>
+            <i class="fas fa-circle" id="color6" onclick="changeColor6()"></i>
+
+            <input type="color" name="" id="custom-color"></input>
+            <button id="custom-color-btn" onclick="changeColorCustom()">apply</button>
+
+        </div>
+    </li>
+    <li>
+
+        <div id="change-font" class="edit-keys" onclick="showFonts()">
+            <i class="fas fa-font"></i>
+            <span>font</span>
+        </div>
+
+        <div id="fonts" class="edit-values">
+            <div id="fonts-label-div">
+
+                <label for="change-headings-font">headings</label>
+
+                <input type="checkbox" name="Change Heading Fonts" id="change-headings-font">
+            </div>
+            <div id="fonts-label-div">
+
+                <label for="change-content-font">content</label>
+
+                <input type="checkbox" name="Change Heading Fonts" id="change-content-font">
+            </div>
+
+            <span id="font1" onclick="changeFont1()">Abc</span>
+            <span id="font2" onclick="changeFont2()">Abc</span>
+            <span id="font3" onclick="changeFont3()">Abc</span>
+            <span id="font4" onclick="changeFont4()">Abc</span>
+            <span id="font5" onclick="changeFont5()">Abc</span>
+
+        </div>
+    </li>
+    <li>
+
+        <div id="change-size" class="edit-keys" onclick="showSizes()">
+            <i class="fas fa-text-height"></i>
+            <span>text-size</span>
+        </div>
+
+        <div id="text-sizes" class="edit-values">
+            <div id="size-label-div">
+
+                <label for="change-headings-size">headings</label>
+
+                <input type="checkbox" name="Change Heading Size" id="change-headings-size">
+            </div>
+            <div id="size-label-div">
+
+                <label for="change-content-size">content</label>
+
+                <input type="checkbox" name="Change Content Size" id="change-content-size">
+            </div>
+
+            <i class="fas fa-plus-circle" onclick="increaseFontSize()"></i>
+            <i class="fas fa-minus-circle" onclick="decreaseFontSize()"></i>
+        </div>
+    </li>
+    </ul> 
+    </nav>
+    <main id="resume">
+        <h2 id="resume-output-heading">Resume</h2>
+        <div id="intro-output-div">
+            <div id="name-output"></div>
+            <div id="address-output"></div>
+            <div id="contact-num-output"></div>
+            <div id="email-output"></div>
+        </div>
+        
+        
+        <div id="education-output-div" class="ul">
+            <h2 class="headings" id="education-output-heading">Education Qualification</h2>
+
+            <ul id="e-ul">
+
+            </ul>
+
+        </div>
+
+        <div id="work-output-div" class="ul">
+            <h2 class="headings" id="work-output-heading">Work Experience</h2>
+
+            <ul id="w-ul">
+
+            </ul>
+
+        </div>
+        <div id="tech-output-div" class="ul">
+            <h2 class="headings" id="tech-output-heading">Technical knowledge</h2>
+
+            <ul id="t-ul">
+
+            </ul>
+
+        </div>
+
+        <div id="personal-output-div">
+            <h2 id="heading-personalinfo">Personal Information</h2>
+           <table>
+            <tr id="dob-output-row">
+                <td>DOB</td>
+                <td id="dob-output"></td>
+            </tr>
+
+            <tr id="martial-output-row">
+                <td>Martial Status</td>
+                <td id="martial-output"></td>
+            </tr>
+
+            <tr id="gender-output-row">
+                <td>Gender</td>
+                <td id="gender-output"></td>
+            </tr>
+            <tr id="father-output-row">
+                <td>Father's / Husband's Name </td>
+                <td id="father-output"></td>
+            </tr>
+
+
+            <tr id="nationality-output-row">
+                <td>Nationality</td>
+                <td id="nationality-output"></td>
+            </tr>
+
+            <tr id="lang-output-row">
+                <td>Languages</td>
+                <td id="lang-output"></td>
+            </tr>
+
+            <tr id="hobbies-output-row">
+                <td>Hobbies</td>
+                <td id="hobbies-output"></td>
+            </tr>
+        </table>
+
+        </div>
+        <div id="declaration-output-div" class="padding-c">
+
+            <h2 class="headings" id="declaration-output-heading">Declaration</h2>
+
+            <div id="declaration-output"></div>
+        </div>
+        <div id="name-output-ending"></div>
+    </main>
+    <div class="btn-holder">
+    <button id="editResume" class="btns" onclick="editGenerate()">edit</button>
+    <button class="btns" id="printbtn" onclick="printResume()" >print</button>
+</div>
+<script src='main.js'></script>
+</body>
+</html>
